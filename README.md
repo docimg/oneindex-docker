@@ -38,6 +38,7 @@ docker run -d --name oneindex \
 
 变量说明：
 
+- `DISABLE_CRON`禁用crontab自动刷新，默认不禁用，需禁用设置任意值即可。
 - `REFRESH_TOKEN`刷新一次token的crontab表达式，默认值`0 * * * *`，即每小时
 - `REFRESH_CACHE`刷新一次cache的crontab表达式，默认值`*/10 * * * *`，即每10分钟
 
