@@ -28,6 +28,50 @@
 			max-width:980px;
 		}
 	</style>
+
+	<?php 	
+		$baidu_analytics = getenv('BAIDU_ANALYTICS');
+	?>
+	<?php if($baidu_analytics){ ?>
+		<!-- Global site tag (hm.js) - Baidu Analytics -->
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?<?php echo $baidu_analytics; ?>";
+		var s = document.getElementsByTagName("script")[0]; 
+		s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+	<?php } ?>
+
+	<?php 	
+		$google_analytics = getenv('GOOGLE_ANALYTICS');
+	?>
+	<?php if($google_analytics){ ?>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $google_analytics; ?>"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '<?php echo $google_analytics; ?>');
+		</script>
+	<?php } ?>
+
+	<?php 	
+		$google_adsense = getenv('GOOGLE_ADSENSE');
+	?>
+	<?php if($google_adsense){ ?>
+		<!-- Global site tag (gtag.js) - Google AdSense -->
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "<?php echo $google_adsense; ?>",
+			enable_page_level_ads: true
+		});
+		</script>
+	<?php } ?>
 </head>
 <body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue">
 	<header class="mdui-appbar mdui-color-theme">
@@ -46,6 +90,15 @@
     	<?php view::section('content');?>
   	</div>
 
-	
+	<?php 	
+		$cnzz_analytics = getenv('CNZZ_ANALYTICS');
+	?>
+	<?php if($cnzz_analytics){ ?>
+		<!-- Global site tag - CNZZ Analytics -->
+		<script type="text/javascript">
+		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cspan id='cnzz_stat_icon_<?php echo $cnzz_analytics; ?>' style='display:none;' %3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D<?php echo $cnzz_analytics; ?>%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	<?php } ?>
 </body>
 </html>

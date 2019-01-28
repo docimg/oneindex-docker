@@ -9,6 +9,49 @@
 		body{background-color:#f2f5fa;padding-bottom:60px;background-position:center bottom;background-repeat:no-repeat;background-attachment:fixed}.nexmoe-item{margin:20px -8px 0!important;padding:15px!important;border-radius:5px;background-color:#fff;-webkit-box-shadow:0 .5em 3em rgba(161,177,204,.4);box-shadow:0 .5em 3em rgba(161,177,204,.4);background-color:#fff}.mdui-img-fluid,.mdui-video-fluid{border-radius:5px;border:1px solid #eee}.mdui-list{padding:0}.mdui-list-item{margin:0!important;border-radius:5px;padding:0 10px 0 5px!important;border:1px solid #eee;margin-bottom:10px!important}.mdui-list-item:last-child{margin-bottom:0!important}.mdui-list-item:first-child{border:none}.mdui-toolbar{width:auto;margin-top:60px!important}.mdui-appbar .mdui-toolbar{height:56px;font-size:16px}.mdui-toolbar>*{padding:0 6px;margin:0 2px;opacity:.5}.mdui-toolbar>.mdui-typo-headline{padding:0 16px 0 0}.mdui-toolbar>i{padding:0}.mdui-toolbar>a:hover,a.mdui-typo-headline,a.active{opacity:1}.mdui-container{max-width:980px}.mdui-list>.th{background-color:initial}.mdui-list-item>a{width:100%;line-height:48px}.mdui-toolbar>a{padding:0 16px;line-height:30px;border-radius:30px;border:1px solid #eee}.mdui-toolbar>a:last-child{opacity:1;background-color:#1e89f2;color:#ffff}@media screen and (max-width:980px){.mdui-list-item .mdui-text-right{display:none}.mdui-container{width:100%!important;margin:0}.mdui-toolbar>*{display:none}.mdui-toolbar>a:last-child,.mdui-toolbar>.mdui-typo-headline,.mdui-toolbar>i:first-child{display:block}}
 	</style>
 	<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.1/js/mdui.min.js"></script>
+
+	<?php 	
+		$baidu_analytics = getenv('BAIDU_ANALYTICS');
+	?>
+	<?php if($baidu_analytics){ ?>
+		<!-- Global site tag (hm.js) - Baidu Analytics -->
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?<?php echo $baidu_analytics; ?>";
+		var s = document.getElementsByTagName("script")[0]; 
+		s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+	<?php } ?>
+
+	<?php 	
+		$google_analytics = getenv('GOOGLE_ANALYTICS');
+	?>
+	<?php if($google_analytics){ ?>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $google_analytics; ?>"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '<?php echo $google_analytics; ?>');
+		</script>
+	<?php } ?>
+	<?php 	
+		$google_adsense = getenv('GOOGLE_ADSENSE');
+	?>
+	<?php if($google_adsense){ ?>
+		<!-- Global site tag (gtag.js) - Google AdSense -->
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "<?php echo $google_adsense; ?>",
+			enable_page_level_ads: true
+		});
+		</script>
+	<?php } ?>
 </head>
 <body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue">
 	
@@ -25,5 +68,15 @@
 		</div>
     	<?php view::section('content');?>
   	</div>
+	<?php 	
+		$cnzz_analytics = getenv('CNZZ_ANALYTICS');
+	?>
+	<?php if($cnzz_analytics){ ?>
+		<!-- Global site tag - CNZZ Analytics -->
+		<script type="text/javascript">
+		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cspan id='cnzz_stat_icon_<?php echo $cnzz_analytics; ?>' style='display:none;' %3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D<?php echo $cnzz_analytics; ?>%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	<?php } ?>
 </body>
 </html>
