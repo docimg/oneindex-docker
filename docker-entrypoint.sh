@@ -10,6 +10,12 @@ if [ -z $DISABLE_CRON ];then
     crond
 fi
 
+if [ -n ${SSH_PASSWORD} ];then
+    echo root:${SSH_PASSWORD} | chpasswd
+    sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+    /usr/sbin/sshd
+fi
+
 chown -R www-data:www-data /var/www/html/cache
 chown -R www-data:www-data /var/www/html/config
 php-fpm & nginx '-g daemon off;'
