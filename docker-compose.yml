@@ -1,0 +1,14 @@
+# docker-compose.yml
+version: "3"
+services:
+  oneindex:
+    image: setzero/oneindex
+    environment:
+    - REFRESH_TOKEN=0 * * * *
+    - REFRESH_CACHE=*/10 * * * *
+    # - DISABLE_CRON=true
+    # - SSH_PASSWORD=root
+    # - TZ=Asia/Shanghai
+    volumes:
+    - ./config:/var/www/html/config
+    - ./cache:/var/www/html/cache

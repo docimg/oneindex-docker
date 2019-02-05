@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 17.05.0-ce
+      - run : |
+          git clone https://github.com/donwa/oneindex.git
+          cd oneindex && export COMMIT_SHA=$(git log -1 --pretty=format:"%H" | awk '{print substr($1,1,8)}') && cd ..
+          sed -i 'N;2aCOPY oneindex /var/www/html' Dockerfile
+          sed -i 's|git clone.*||' Dockerfile
+          docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PWD
+          docker build -t setzero/oneindex:alpine-$COMMIT_SHA -f Dockerfile .
+          docker tag  setzero/oneindex:alpine-$COMMIT_SHA setzero/oneindex:latest
+          docker push setzero/oneindex:latest
+          docker push setzero/oneindex:alpine-$COMMIT_SHA
+workflows:
+  version: 2
+  build:
+    jobs:
+    - build
