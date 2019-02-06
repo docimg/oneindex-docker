@@ -1,6 +1,6 @@
 # Docker-oneindex
 
-[![CircleCI](https://circleci.com/gh/TimeBye/docker-oneindex.svg?style=svg)](https://circleci.com/gh/TimeBye/docker-oneindex)
+[![CircleCI](https://circleci.com/gh/TimeBye/oneindex.svg?style=svg)](https://circleci.com/gh/TimeBye/oneindex)
 [![Docker Pulls](https://img.shields.io/docker/pulls/setzero/oneindex.svg)](https://hub.docker.com/r/setzero/oneindex)
 [![](https://images.microbadger.com/badges/image/setzero/oneindex.svg)](https://microbadger.com/images/setzero/oneindex "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/setzero/oneindex.svg)](https://microbadger.com/images/setzero/oneindex "Get your own version badge on microbadger.com")
