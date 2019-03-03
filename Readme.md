@@ -9,7 +9,7 @@
 
 ## 版本：
 
-- `latest`：以debian为基础系统，跟踪 [donwa/oneindex](https://github.com/donwa/oneindex/commits/master) 的最新提交。
+- `latest`：以alpine为基础系统，跟踪 [donwa/oneindex](https://github.com/donwa/oneindex/commits/master) 的最新提交。
 - `alpine-commit_sha`：以alpine为基础系统，[donwa/oneindex](https://github.com/donwa/oneindex/commits/master) Commit sha对应的提交。
 
 ## 运行：
