@@ -2,7 +2,7 @@
 version: "3"
 services:
   oneindex:
-    image: setzero/oneindex
+    image: wujiaxing/oneindex
     environment:
     - REFRESH_TOKEN=0 * * * *
     - REFRESH_CACHE=*/10 * * * *
